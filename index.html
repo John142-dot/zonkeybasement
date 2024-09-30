@@ -9,7 +9,7 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: black; /* Changed to black */
+            background-color: black; /* Background set to black */
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -22,14 +22,14 @@
         .bubble {
             position: absolute;
             border-radius: 50%;
-            opacity: 0.7;
-            background-color: white; /* Changed to white */
+            opacity: 0.5; /* Made bubbles transparent */
+            background-color: rgba(255, 255, 255, 0.5); /* Transparent white */
         }
 
         .glowing-text {
             font-size: 3em;
             font-weight: bold;
-            color: #ffffff; /* Changed to white */
+            color: #ffffff; /* White text */
             text-align: center;
             cursor: pointer;
             text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff; 
@@ -37,32 +37,13 @@
             z-index: 2;
         }
 
-        .squircle-btn {
-            background-color: red;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px; /* Squircles */
-            border: none;
-            font-size: 1.5em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-            z-index: 2;
-        }
-
-        .squircle-btn:hover {
-            background-color: #ff4500; 
-        }
-
-        .neon-green {
-            background-color: #39ff14 !important; 
-            box-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14; 
-        }
-
         .resizable-text {
             font-size: calc(1em + 1vw); /* Responsive sizing */
-            color: white; /* White text */
+            color: black; /* Black text for contrast */
             margin-top: 20px; /* Spacing */
+            padding: 15px; /* Padding for better appearance */
+            border-radius: 50px; /* Squircles */
+            background-color: white; /* White background for the squircle */
         }
 
         .scrollable-container {
@@ -81,10 +62,6 @@
         Zonkey
     </div>
 
-    <button class="squircle-btn" id="infoButton" onclick="handleInfoClick()">
-        Info
-    </button>
-
     <div class="scrollable-container">
         <div class="resizable-text">This is resizable text!</div>
         <div class="resizable-text">You can add more texts here.</div>
@@ -96,12 +73,6 @@
     <script>
         function goToURL() {
             window.location.href = "https://dcinv-source.vercel.app/";
-        }
-
-        function handleInfoClick() {
-            const button = document.getElementById('infoButton');
-            button.classList.add('neon-green');
-            window.location.href = "https://cubixing.vercel.app/";
         }
 
         function createBubbles() {
@@ -151,4 +122,4 @@
     </script>
 </body>
 
-      </html>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z😀</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black; /* Changed to black */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            flex-direction: column;
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.7;
+            background-color: white; /* Changed to white */
+        }
+
+        .glowing-text {
+            font-size: 3em;
+            font-weight: bold;
+            color: #ffffff; /* Changed to white */
+            text-align: center;
+            cursor: pointer;
+            text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff; 
+            position: relative;
+            z-index: 2;
+        }
+
+        .squircle-btn {
+            background-color: red;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px; /* Squircles */
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            z-index: 2;
+        }
+
+        .squircle-btn:hover {
+            background-color: #ff4500; 
+        }
+
+        .neon-green {
+            background-color: #39ff14 !important; 
+            box-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14; 
+        }
+
+        .resizable-text {
+            font-size: calc(1em + 1vw); /* Responsive sizing */
+            color: white; /* White text */
+            margin-top: 20px; /* Spacing */
+        }
+
+        .scrollable-container {
+            max-height: calc(100vh - 200px); /* Allow scrolling */
+            overflow-y: auto; /* Enable vertical scrolling */
+            width: 80%; /* Width of the container */
+        }
+    </style>
+</head>
+
+<body>
+
+    <img src="path/to/image.png" alt="Image above text" style="position: absolute; top: -50px; z-index: 1;" />
+
+    <div class="glowing-text" onclick="goToURL()">
+        Zonkey
+    </div>
+
+    <button class="squircle-btn" id="infoButton" onclick="handleInfoClick()">
+        Info
+    </button>
+
+    <div class="scrollable-container">
+        <div class="resizable-text">This is resizable text!</div>
+        <div class="resizable-text">You can add more texts here.</div>
+        <div class="resizable-text">Feel free to customize!</div>
+        <div class="resizable-text">More content can be added.</div>
+        <div class="resizable-text">Keep scrolling for more!</div>
+    </div>
+
+    <script>
+        function goToURL() {
+            window.location.href = "https://dcinv-source.vercel.app/";
+        }
+
+        function handleInfoClick() {
+            const button = document.getElementById('infoButton');
+            button.classList.add('neon-green');
+            window.location.href = "https://cubixing.vercel.app/";
+        }
+
+        function createBubbles() {
+            const numBubbles = 15; 
+            const bubbleSizes = [50, ...Array(12).fill(120)];
+            bubbleSizes.sort(() => Math.random() - 0.5);
+
+            for (let i = 0; i < numBubbles; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                document.body.appendChild(bubble);
+                bubble.style.width = bubbleSizes[i] + 'px';
+                bubble.style.height = bubbleSizes[i] + 'px';
+                const minYPosition = window.innerHeight - (bubbleSizes[i] + 150);
+                bubble.style.left = Math.random() * (window.innerWidth - bubbleSizes[i]) + 'px';
+                bubble.style.top = Math.random() * minYPosition + 'px';
+                bubble.velocityX = (Math.random() - 0.5) * (4 / 3);
+                bubble.velocityY = (Math.random() - 0.5) * (4 / 3);
+                animateBubble(bubble);
+            }
+        }
+
+        function animateBubble(bubble) {
+            function moveBubble() {
+                let posX = parseFloat(bubble.style.left);
+                let posY = parseFloat(bubble.style.top);
+                posX += bubble.velocityX;
+                posY += bubble.velocityY;
+
+                if (posX <= 0 || posX >= window.innerWidth - parseFloat(bubble.style.width)) {
+                    bubble.velocityX *= -1; 
+                }
+                if (posY <= 0 || posY >= window.innerHeight - parseFloat(bubble.style.height)) {
+                    bubble.velocityY *= -1; 
+                }
+
+                bubble.style.left = posX + 'px';
+                bubble.style.top = posY + 'px';
+
+                requestAnimationFrame(moveBubble);
+            }
+            moveBubble();
+        }
+
+        window.onload = createBubbles;
+
+    </script>
+</body>
+
+      </html>

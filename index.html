@@ -44,6 +44,14 @@
             padding: 15px; /* Padding for better appearance */
             border-radius: 50px; /* Squircles */
             background-color: white; /* White background for the squircle */
+            display: flex; /* Flexbox for alignment */
+            align-items: center; /* Center items vertically */
+        }
+
+        .resizable-text img {
+            width: 50px; /* Image size */
+            height: auto; /* Maintain aspect ratio */
+            margin-right: 10px; /* Spacing between image and text */
         }
 
         .scrollable-container {
@@ -63,11 +71,26 @@
     </div>
 
     <div class="scrollable-container">
-        <div class="resizable-text">This is resizable text!</div>
-        <div class="resizable-text">You can add more texts here.</div>
-        <div class="resizable-text">Feel free to customize!</div>
-        <div class="resizable-text">More content can be added.</div>
-        <div class="resizable-text">Keep scrolling for more!</div>
+        <div class="resizable-text">
+            <img src="path/to/image1.jpg" alt="Image for text one">
+            This is resizable text!
+        </div>
+        <div class="resizable-text">
+            <img src="path/to/image2.jpg" alt="Image for text two">
+            You can add more texts here.
+        </div>
+        <div class="resizable-text">
+            <img src="path/to/image3.jpg" alt="Image for text three">
+            Feel free to customize!
+        </div>
+        <div class="resizable-text">
+            <img src="path/to/image4.jpg" alt="Image for text four">
+            More content can be added.
+        </div>
+        <div class="resizable-text">
+            <img src="path/to/image5.jpg" alt="Image for text five">
+            Keep scrolling for more!
+        </div>
     </div>
 
     <script>
